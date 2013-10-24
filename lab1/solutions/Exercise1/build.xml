@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<project name="lab1Exercise" default="compile" basedir=".">
+	<property name="BuildDir" value="build"/>
+	<property name="DistDir" value="dist"/>
+	<property name="ClassDir" value="build/classes"/>
+	<property name="SrcDir" value="src"/>
+	<property name="NomeFileJava" value="Esercizio"/>
+	<property name="NomeJar" value="Esercizio.jar"/>
+	<target name="init">
+		<echo message="Init has been called"/>
+		<mkdir dir="${BuildDir}" />
+		<mkdir dir="${DistDir}" />
+		<mkdir dir="${ClassDir}"/>
+	</target>
+	<target name="compile" depends="init">
+		<echo message="Compile target has been called"/>
+		<javac srcdir="${SrcDir}" destdir="${ClassDir}" />
+	</target>
+	<target name="execute" depends="compile">
+	    <java classname="${NomeFileJava}" classpath="${ClassDir}" >
+			<arg line="1 2 3"/>
+		</java>
+	</target>
+	<target name="archive" depends="compile">
+		<jar destfile="${DistDir}/${NomeJar}" basedir="${ClassDir}" />
+	</target>
+	<target name="clean">
+		<delete dir="${BuildDir}"/>
+		<delete dir="${DistDir}" />
+	</target>
+</project>
