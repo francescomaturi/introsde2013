@@ -19,6 +19,9 @@
 	<target name="execute" depends="compile">
 	    <java classname="${NomeFileJava}" classpath="${ClassDir}" >
 			<arg line="1 2 3"/>
+			<!-- <arg value="1"/>
+			<arg value="2"/>
+			<arg value="3"/> -->
 		</java>
 	</target>
 	<target name="archive" depends="compile">
