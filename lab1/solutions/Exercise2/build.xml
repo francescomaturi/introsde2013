@@ -60,6 +60,7 @@
     </target>
 
     <target name="clean">
-        <delete dir="${build.dir}"/>
+      <echo message="Deleting /${build.dir} folder"/>
+      <delete dir="${build.dir}"/>
     </target>
 </project>
